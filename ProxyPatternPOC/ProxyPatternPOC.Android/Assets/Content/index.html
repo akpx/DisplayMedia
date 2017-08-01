@@ -1,0 +1,44 @@
+
+<html>
+<body>
+    <h1>Web View</h1>
+    <br />
+    Parameter: <input type="text" id="name">
+    <br />
+    <br />    
+    <button type="button" onclick="javascript:CallCSharp();">Call C#</button>
+    <button type="button" onclick="javascript:ClearData();">Clear Data</button>
+    <br />
+    
+    <p ><b>Result:</b></p>
+    <textarea rows="15" id="result" style="width:100%" ></textarea> 
+    <script type="text/javascript">
+    function log(str) {
+        document.getElementById("result").innerHTML = str;
+
+    }
+
+    function ClearData() {
+        try {
+            document.getElementById("result").innerHTML = "";
+
+        } catch (err) {
+
+        }
+    }
+
+    function CallCSharp() {
+        try {
+            var data = document.getElementById("name").value;
+            invokeCSharpAction("callAPI", data);
+        } catch (err) {
+            log(err);
+        }
+    }
+
+    function printLog(data) {
+        log(data);
+    }
+    </script>
+</body>
+</html>
